@@ -11,6 +11,12 @@ import sys
 
 class MDP:
     
+    # TODO
+    ''' 
+        -add dead state 
+        -reconstruct state tables 
+    '''
+    
     class StateTable:
             
         def __init__(self, eP, rP, eR, eR, condition):
@@ -28,6 +34,14 @@ class MDP:
         self.fitState = State(const.exeState, relState, exeReward, relReward, 'fit')
         self.unfitState = State(const.exeState, relState, exeReward, relReward, 'unfit')
         self.startState = fitState if startState == 'fit' else self.unfitState
+        
+    def q(self):
+        
+    def v(self):
+        
+    def getReward(self):
+    
+    def getProbability(self):
         
         
 def main():
