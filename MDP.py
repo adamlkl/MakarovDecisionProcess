@@ -15,6 +15,7 @@ class MDP:
     ''' 
         -add dead state 
         -reconstruct state tables 
+        -change functions 
     '''
     
     class StateTable:
