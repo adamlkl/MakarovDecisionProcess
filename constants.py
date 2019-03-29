@@ -19,13 +19,13 @@ relReward = [[10,10],[5,5]]
 '''
 
 baseRelaxTable = {
-              'fit':{'fit':{'p':0.693,'r':10}, 'unfit':{'p':0.297,'r':10}, 'dead':{'p':0.01,'r':0}},
-              'unfit':{'fit':{'p':0,'r':5}, 'unfit':{'p':0.99,'r':5}, 'dead':{'p':0.01,'r':0}},
-              'dead':{'fit':{'p':0,'r':0}, 'unfit':{'p':0,'r':0}, 'dead':{'p':1,'r':0}}
+              'fit':{'fit':[0.693,10], 'unfit':[0.297,10], 'dead':[0.01,0]},
+              'unfit':{'fit':[0,5], 'unfit':[0.99,5], 'dead':[0.01,0]},
+              'dead':{'fit':[0,0], 'unfit':[0,0], 'dead':[1,0]}
               }
-    
-baseExerciseTable = { 
-                  'fit':{'fit':{'p':0.891,'r':8}, 'unfit':{'p':0.09,'r':8}, 'dead':{'p':0.1,'r':0}},
-                  'unfit':{'fit':{'p':0.18,'r':0}, 'unfit':{'p':0.72,'r':0}, 'dead':{'p':0.1,'r':0}},
-                  'dead':{'fit':{'p':0,'r':0}, 'unfit':{'p':0,'r':0}, 'dead':{'p':1,'r':0}}
-                 }
+
+baseExerciseTable = {
+              'fit':{'fit':[0.891,8], 'unfit':[0.09,8], 'dead':[0.1,0]},
+              'unfit':{'fit':[0.18,0], 'unfit':[0.72,0], 'dead':[0.1,0]},
+              'dead':{'fit':[0,0], 'unfit':[0,0], 'dead':[1,0]}
+              }
