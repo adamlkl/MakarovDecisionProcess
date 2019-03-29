@@ -57,8 +57,8 @@ def main():
         gamma = float(inputs[3])
         
         mdp = MDP(gamma)
-        print "1: %.8f" %(mdp.calculateQ(initial_state,'exercise',n))
-        print "2: %.8f" %(mdp.calculateQ(initial_state,'relax',n))
+        print "1: %.15f" %(mdp.calculateQ(initial_state,'exercise',n))
+        print "2: %.15f" %(mdp.calculateQ(initial_state,'relax',n))
     
 if __name__ == '__main__':
     main()
