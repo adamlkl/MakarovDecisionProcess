@@ -62,23 +62,3 @@ def main():
     
 if __name__ == '__main__':
     main()
-    
-'''
-    class StateTable:
-            
-        def __init__(self, eP, rP, eR, eR, condition):
-            self.eP = eP
-            self.rP = rP
-            self.eR = eR
-            self.rR = rR
-            self.condition = condition
-            self.state = const.FIT if self.condition == 'fit' else const.UNFIT
-            
-    def __init__(self, n, startState, gamma):
-        self.n = n 
-        self.gamma = gamma
-        
-        self.fitState = State(const.exeState, relState, exeReward, relReward, 'fit')
-        self.unfitState = State(const.exeState, relState, exeReward, relReward, 'unfit')
-        self.startState = fitState if startState == 'fit' else self.unfitState
-'''
