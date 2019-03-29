@@ -23,31 +23,42 @@ class MDP:
         self.qvalues = {'exercise':{'fit':[],'unfit':[],'dead':[]},
                         'relax':{'fit':[],'unfit':[],'dead':[]}
                         }
-        self.nV = []
+        self.nV = {}
         
     def calculateQ(self, state, action, n):
-        if(len(qvalues[action][state])<n):
-            if n==0:
-                    q = const.baseExerciseTable[action][state]['fit'][0]*const.baseExerciseTable[action][state]['fit'][1]+const.baseExerciseTable[action][state]['unfit'][0]*const.baseExerciseTable[action][state]['ununfit'][1]
-            else: 
-                    q = q + self.gamma*(const.baseExerciseTable[action][state]['fit'][0]*v('fit', n-1)+const.baseExerciseTable[action][state]['unfit'][0]*v('unfit', n-1))
-            self.qvalues[action][state][n]=q
-            
-        return self.qvalues[action][state][n]
+        #if(len(self.qvalues[action][state])<n):
+        q = -1
+        if n==0:
+            for s in const.STATE:
+                print(const.baseTable[action][state][s][0])
+                q += const.baseTable[action][state][s][0]*const.baseTable[action][state][s][1]
+                
+        else: 
+            q = self.calculateQ(state, action, 0) + self.gamma*(const.baseTable[action][state]['fit'][0]*self.getV('fit', n-1)+const.baseTable[action][state]['unfit'][0]*self.getV('unfit', n-1))
+            #self.qvalues[action][state][n]=q
+        #return self.qvalues[action][state][n]
+        return q
     
-    def v(self, state, n):
+    def getV(self, state, n):
         if n<len(self.nV):
-            self.nV[n]= max(calculateQ(state,'exercise',n),calculateQ(state,'relax',n))
+            self.nV[n]= max(self.calculateQ(state,'exercise',n),self.calculateQ(state,'relax',n))
         return self.nV[n]
             
+    def getsth(self, action, state):
+        return const.baseTable[action][state]['fit'][0]
+    
 def main():
     inputs = sys.argv
-    if(len(inputs)!=3):
+    if(len(inputs)!=4):
         print('Input error!!!')
     else:
-        mdp = MDP(inputs[3])
-        print(mdp.calculateQ(inputs[1],'exercise',inputs[2]))
-        print(mdp.calculateQ(inputs[1],'relax',inputs[2]))
+        n = int(inputs[1])
+        initial_state = inputs[2]
+        gamma = float(inputs[3])
+        
+        mdp = MDP(gamma)
+        print(mdp.calculateQ(initial_state,'exercise',n))
+        print(mdp.calculateQ(initial_state,'relax',n))
     
 if __name__ == '__main__':
     main()
