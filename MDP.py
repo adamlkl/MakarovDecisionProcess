@@ -25,12 +25,12 @@ class MDP:
                         }
         
     def calculateQ(self, state, action, n):
-        if(len(q)<n):
+        if(len(qvalues[action][state])<n):
             if n==0:
                     q = const.baseExerciseTable[action][state]['fit'][0]*const.baseExerciseTable[action][state]['fit'][1]+const.baseExerciseTable[action][state]['unfit'][0]*const.baseExerciseTable[action][state]['ununfit'][1]
             else: 
                     q = q + self.gamma*calculateQ(state, action, n-1)
-            self.qvalues[n]=q
+            self.qvalues[action][state][n]=q
             return q
         else:
             return qvalues[action][state][n]
