@@ -23,25 +23,23 @@ class MDP:
         self.qvalues = {'exercise':{'fit':[],'unfit':[],'dead':[]},
                         'relax':{'fit':[],'unfit':[],'dead':[]}
                         }
+        self.nV = []
         
     def calculateQ(self, state, action, n):
         if(len(qvalues[action][state])<n):
             if n==0:
                     q = const.baseExerciseTable[action][state]['fit'][0]*const.baseExerciseTable[action][state]['fit'][1]+const.baseExerciseTable[action][state]['unfit'][0]*const.baseExerciseTable[action][state]['ununfit'][1]
             else: 
-                    q = q + self.gamma*calculateQ(state, action, n-1)
+                    q = q + self.gamma*(const.baseExerciseTable[action][state]['fit'][0]*v('fit', n-1)+const.baseExerciseTable[action][state]['unfit'][0]*v('unfit', n-1))
             self.qvalues[action][state][n]=q
-            return q
-        else:
-            return qvalues[action][state][n]
+            
+        return self.qvalues[action][state][n]
     
     def v(self, state, n):
-        return max(calculateQ(state,'exercise',n),calculateQ(state,'relax',n))
-    
-    def getReward(self):
-    
-    def getProbability(self):
-        
+        if n<len(self.nV):
+            self.nV[n]= max(calculateQ(state,'exercise',n),calculateQ(state,'relax',n))
+        return self.nV[n]
+            
 def main():
     inputs = sys.argv
     if(len(inputs)!=3):
