@@ -27,11 +27,10 @@ class MDP:
         
     def calculateQ(self, state, action, n):
         #if(len(self.qvalues[action][state])<n):
-        q = -1
+        q = 0
         if n==0:
             for s in const.STATE:
-                print(const.baseTable[action][state][s][0])
-                q += const.baseTable[action][state][s][0]*const.baseTable[action][state][s][1]
+                q = q + const.baseTable[action][state][s][0]*const.baseTable[action][state][s][1]
                 
         else: 
             q = self.calculateQ(state, action, 0) + self.gamma*(const.baseTable[action][state]['fit'][0]*self.getV('fit', n-1)+const.baseTable[action][state]['unfit'][0]*self.getV('unfit', n-1))
@@ -40,9 +39,10 @@ class MDP:
         return q
     
     def getV(self, state, n):
-        if n<len(self.nV):
-            self.nV[n]= max(self.calculateQ(state,'exercise',n),self.calculateQ(state,'relax',n))
-        return self.nV[n]
+        #if n<len(self.nV):
+            #self.nV[n]= max(self.calculateQ(state,'exercise',n),self.calculateQ(state,'relax',n))
+        v = max(self.calculateQ(state,'exercise',n),self.calculateQ(state,'relax',n))
+        return v
             
     def getsth(self, action, state):
         return const.baseTable[action][state]['fit'][0]
@@ -57,8 +57,8 @@ def main():
         gamma = float(inputs[3])
         
         mdp = MDP(gamma)
-        print(mdp.calculateQ(initial_state,'exercise',n))
-        print(mdp.calculateQ(initial_state,'relax',n))
+        print "1: %.8f" %(mdp.calculateQ(initial_state,'exercise',n))
+        print "2: %.8f" %(mdp.calculateQ(initial_state,'relax',n))
     
 if __name__ == '__main__':
     main()
