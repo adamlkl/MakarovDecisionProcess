@@ -41,7 +41,7 @@ class MDP:
         return const.baseTable[action][state]['fit'][0]
     
     def calculateAllQ(self, state, action, n):
-        for i in range(n):
+        for i in range(n+1):
             q = self.calculateQ(state, action, i)
             print 'n=%d %s: %.15f' %(i, action, q)
         
