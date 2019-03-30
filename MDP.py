@@ -11,13 +11,6 @@ import sys
 
 class MDP:
     
-    # TODO
-    ''' 
-        - add dead state 
-        - reconstruct state tables 
-        - change functions 
-        - make dynamic 
-    '''    
     def __init__(self,gamma):
         self.gamma = gamma
         self.qvalues = {'exercise':{'fit':{},'unfit':{},'dead':{}},
@@ -38,14 +31,9 @@ class MDP:
             return q
         
         else: 
-            return self.qvalues[action][state][n]
-        #return self.qvalues[action][state][n]
-        #print("%d q: %.15f" %(n,self.qvalues[action][state][n]))
-            
+            return self.qvalues[action][state][n]            
     
     def getV(self, state, n):
-        #if n<len(self.nV):
-            #self.nV[n]= max(self.calculateQ(state,'exercise',n),self.calculateQ(state,'relax',n))
         v = max(self.calculateQ(state,'exercise',n),self.calculateQ(state,'relax',n))
         return v
             
