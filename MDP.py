@@ -40,10 +40,11 @@ class MDP:
     def getsth(self, action, state):
         return const.baseTable[action][state]['fit'][0]
     
-    def calculateAllQ(self, state, action, n):
+    def calculateAllQ(self, state, n):
         for i in range(n+1):
-            q = self.calculateQ(state, action, i)
-            print 'n=%d %s: %.15f' %(i, action, q)
+            p = self.calculateQ(state, 'exercise', i)
+            q = self.calculateQ(state, 'relax', i)
+            print 'n=%d %s: %.15f %s: %.15f' %(i, 'exercise', p, 'relax', q)
         
 def main():
     inputs = sys.argv
@@ -57,8 +58,8 @@ def main():
         mdp = MDP(gamma)
         # print "1: %.15f" %(mdp.calculateQ(initial_state,'exercise',n))
         # print "2: %.15f" %(mdp.calculateQ(initial_state,'relax',n))
-        mdp.calculateAllQ(initial_state,'exercise',n)
-        mdp.calculateAllQ(initial_state,'relax',n)
+        mdp.calculateAllQ(initial_state,n)
+        #mdp.calculateAllQ(initial_state,'relax',n)
     
 if __name__ == '__main__':
     main()
