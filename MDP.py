@@ -44,7 +44,7 @@ class MDP:
         for i in range(n+1):
             p = self.calculateQ(state, 'exercise', i)
             q = self.calculateQ(state, 'relax', i)
-            print 'n=%d %s: %.15f %s: %.15f' %(i, 'exercise', p, 'relax', q)
+            print 'n=%d %s: %.15f; %s: %.15f' %(i, 'exercise', p, 'relax', q)
         
 def main():
     inputs = sys.argv
