@@ -1,1 +1,7 @@
 # MakarovDecisionProcess
+
+A **Markov decision process** (MDP) is a discrete time stochastic control process. It provides a mathematical framework for modeling decision making in situations where outcomes are partly random and partly under the control of a decision maker. MDPs are useful for studying optimization problems solved via dynamic programming and reinforcement learning. They are used in many disciplines, including robotics, automatic control, economics and manufacturing.
+
+At each time step, the process is in some state *s*, and the decision maker may choose any action *a* that is available in state *s*. The process responds at the next time step by randomly moving into a new state *s'*, and giving the decision maker a corresponding reward *R<sub>a</sub>(s,s′)*.
+
+The probability that the process moves into its new state *s'* is influenced by the chosen action. Specifically, it is given by the state transition function *P<sub>a</sub>sub>(s,s′)*. Thus, the next state *s'* depends on the current state s and the decision maker's action *a*. But given *s* and *a*, it is conditionally independent of all previous states and actions. In other words, the state transitions of an MDP satisfies the Markov property.
