@@ -26,7 +26,7 @@ class MDP:
                     q = q + const.baseTable[action][state][s][0]*const.baseTable[action][state][s][1]
                     self.qvalues[action][state][n]=q
             else: 
-                q = self.calculateQ(state, action, 0) + self.gamma*(const.baseTable[action][state]['fit'][0]*self.getV('fit', n-1)+const.baseTable[action][state]['unfit'][0]*self.getV('unfit', n-1))
+                q = self.calculateQ(state, action, 0) + self.gamma*(const.baseTable[action][state]['fit'][0]*self.getV('fit', n-1)+const.baseTable[action][state]['unfit'][0]*self.getV('unfit', n-1)+const.baseTable[action][state]['dead'][0]*self.getV('dead', n-1))
                 self.qvalues[action][state][n]=q
             return q
         
