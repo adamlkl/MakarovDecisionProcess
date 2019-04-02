@@ -36,9 +36,6 @@ class MDP:
     def getV(self, state, n):
         v = max(self.calculateQ(state,'exercise',n),self.calculateQ(state,'relax',n))
         return v
-            
-    def getsth(self, action, state):
-        return const.baseTable[action][state]['fit'][0]
     
     def calculateAllQ(self, state, n):
         for i in range(n+1):
