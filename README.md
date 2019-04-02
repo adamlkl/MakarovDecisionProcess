@@ -10,7 +10,10 @@ The probability that the process moves into its new state *s'* is influenced by 
 ## Running ##
 To run the program, <br />
 `python MDP.py n state gamma` <br />
-where n is the number of iterations,<br />      state is either fit, unfit or dead, <br />      gamma is any float number between 0 and 1.
+where <br />
+**_n_** is the number of iterations,<br />      
+**_state_** is either fit, unfit or dead, <br />      
+**_gamma_** is any float number between 0 and 1.
 
 ## Test Results##
 A sample of the test results can be found <a href="https://github.com/adamlkl/MarkovDecisionProcess/blob/master/Documentation/test_results.pdf">here</a>.
