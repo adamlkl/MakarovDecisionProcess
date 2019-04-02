@@ -8,8 +8,8 @@ At each time step, the process is in some state *s*, and the decision maker may 
 The probability that the process moves into its new state *s'* is influenced by the chosen action. Specifically, it is given by the state transition function *P<sub>a</sub>sub>(s,s′)*. Thus, the next state *s'* depends on the current state s and the decision maker's action *a*. But given *s* and *a*, it is conditionally independent of all previous states and actions. In other words, the state transitions of an MDP satisfies the Markov property.
 
 ## Running ##
-To run the program, <br />
-`python MDP.py n state gamma` where <br />
+To run the program, <br /><br />
+`python MDP.py n state gamma` where <br /><br />
 **_n_** is the number of iterations,     
 **_state_** is either fit, unfit or dead,    
 **_gamma_** is any float number between 0 and 1.
