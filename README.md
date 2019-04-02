@@ -9,8 +9,7 @@ The probability that the process moves into its new state *s'* is influenced by 
 
 ## Running ##
 To run the program, <br />
-`python MDP.py n state gamma` <br />
-where <br />
+`python MDP.py n state gamma` where <br />
 **_n_** is the number of iterations,     
 **_state_** is either fit, unfit or dead,    
 **_gamma_** is any float number between 0 and 1.
