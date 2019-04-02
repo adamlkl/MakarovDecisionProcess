@@ -16,7 +16,6 @@ class MDP:
         self.qvalues = {'exercise':{'fit':{},'unfit':{},'dead':{}},
                         'relax':{'fit':{},'unfit':{},'dead':{}}
                         }
-        self.nV = {}
         
     def calculateQ(self, state, action, n):
         if n not in self.qvalues[action][state]:
